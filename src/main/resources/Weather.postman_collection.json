@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "620faf1a-2203-4f6b-ae8a-8d9726b91762",
+		"name": "Weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear weather",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"1985-01-01\",\r\n    \"lat\": 36.1189,\r\n    \"lon\": -86.6892,\r\n    \"city\": \"Pilar\",\r\n    \"state\": \"Tennessee\",\r\n    \"temperatures\": [17.3, 16.8, 16.0]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Weather - falla por el ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"date\": \"1985-01-01\",\r\n    \"lat\": 36.1189,\r\n    \"lon\": -86.6892,\r\n    \"city\": \"Pilar\",\r\n    \"state\": \"Tennessee\",\r\n    \"temperatures\": [17.3, 16.8, 16.0]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Weather - falla por largo de la cordenada",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\": \"1985-01-01\",\r\n    \"lat\": 36.118955,\r\n    \"lon\": -86.6892,\r\n    \"city\": \"Pilar\",\r\n    \"state\": \"Tennessee\",\r\n    \"temperatures\": [17.3, 16.8, 16.0]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather ID:1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather ID inexistente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Weather",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Weather con filtros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Moscow",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "2019-06-11",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "id, desc",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "15",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Weather misma ciudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather?city=Moscow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Moscow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Weather misma fecha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/weather/api/v1/microservices/weather?date=2019-06-11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"weather",
+						"api",
+						"v1",
+						"microservices",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2019-06-11"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
